@@ -133,19 +133,32 @@ $db->disconnect();
         font-family: 'Minecraftia', sans-serif;
     }
 
-    .container form button {
-        width: 100%;
-        padding: 10px;
-        background: #4caf50;
-        border: 2px solid #2e7d32;
-        color: white;
-        font-family: 'Minecraftia', sans-serif;
-        cursor: pointer;
-    }
+    .container form button,
+.container form input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #5aa65a;
+    border: 4px solid #2f612f;
+    color: #fff;
+    font-family: 'Minecraftia', sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    text-transform: uppercase;
+    box-shadow: 0 4px #2f612f;
+    transition: all 0.1s ease-in-out;
+}
 
-    .container form button:hover {
-        background: #388e3c;
-    }
+.container form button:hover,
+.container form input[type="submit"]:hover {
+    background-color: #6ec66e;
+}
+
+.container form button:active,
+.container form input[type="submit"]:active {
+    box-shadow: none;
+    transform: translateY(4px);
+}
+
 
     .error {
         color: #ff4d4d;
