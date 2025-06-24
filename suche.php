@@ -145,7 +145,7 @@ $db->disconnect();
     <div class="container">
         <a href="Inventar_anschauen.php" class="inventar-btn">Inventar anschauen</a>
         <h1>Suche</h1>
-        <form method="get" action="suche.php" class="search-form" autocomplete="off">
+        <form method="get" action="suche.php" class="search-form" autocomplete="off" id="search-form">
             <input type="text" id="suchbegriff" name="suchbegriff" value="<?= htmlspecialchars($suchbegriff); ?>" placeholder="Suchbegriff eingeben" required>
             <div id="autocomplete-list" class="autocomplete-list" style="display:none;"></div>
             <button type="submit">Suchen</button>
