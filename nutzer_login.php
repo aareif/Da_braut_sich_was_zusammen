@@ -215,27 +215,6 @@ body {
     to { transform: translateX(calc(100vw + 200px)); }
 }
 
-/* Pixelated grass effect */
-.grass {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 80px;
-    background: 
-        repeating-linear-gradient(
-            90deg,
-            #228B22 0px,
-            #228B22 16px,
-            #32CD32 16px,
-            #32CD32 32px,
-            #228B22 32px,
-            #228B22 48px,
-            #90EE90 48px,
-            #90EE90 64px
-        );
-    z-index: 1;
-}
-
 /* Main container - Minecraft Grass Block */
 .login-container {
     position: relative;
@@ -657,9 +636,6 @@ body {
         <div class="cloud cloud2"></div>
         <div class="cloud cloud3"></div>
     </div>
-    
-    <!-- Grass at bottom -->
-    <div class="grass"></div>
     
     <!-- Particle effects -->
     <div class="particles">
