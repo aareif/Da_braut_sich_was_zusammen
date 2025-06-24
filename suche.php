@@ -172,6 +172,7 @@ $db->disconnect();
     document.addEventListener("DOMContentLoaded", function() {
         const input = document.getElementById('suchbegriff');
         const list = document.getElementById('autocomplete-list');
+        const form = document.getElementById('search-form');
         let activeIndex = -1;
         let items = [];
 
@@ -192,9 +193,10 @@ $db->disconnect();
                             div.className = "autocomplete-item";
                             div.innerHTML = item.name;
                             div.addEventListener('mousedown', function(e) {
-                                input.value = item.name;
-                                list.style.display = "none";
-                            });
+    input.value = item.name;
+    list.style.display = "none";
+    form.submit(); // Formular absenden!
+});
                             list.appendChild(div);
                         });
                         list.style.display = "block";
