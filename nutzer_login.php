@@ -51,7 +51,7 @@ $db->disconnect();
 body {
     min-height: 100vh;
     font-family: 'Press Start 2P', monospace;
-    background: linear-gradient(135deg, #87CEEB 0%, #98FB98 50%, #90EE90 100%);
+    background: linear-gradient(180deg, #87CEEB 0%, #B0E0E6 50%, #87CEFA 100%);
     position: relative;
     overflow-x: hidden;
 }
@@ -67,57 +67,147 @@ body {
     z-index: 1;
 }
 
-.cloud {
+/* Minecraft Sun */
+.sun {
     position: absolute;
-    background: white;
-    border-radius: 0;
-    opacity: 0.8;
-    animation: float 20s infinite linear;
+    top: 15%;
+    right: 20%;
+    width: 80px;
+    height: 80px;
+    background: 
+        linear-gradient(0deg, 
+            #FFD700 0%, #FFD700 12.5%,
+            #FFFF00 12.5%, #FFFF00 25%,
+            #FFD700 25%, #FFD700 37.5%,
+            #FFFF00 37.5%, #FFFF00 50%,
+            #FFD700 50%, #FFD700 62.5%,
+            #FFFF00 62.5%, #FFFF00 75%,
+            #FFD700 75%, #FFD700 87.5%,
+            #FFFF00 87.5%, #FFFF00 100%
+        ),
+        linear-gradient(90deg, 
+            #FFD700 0%, #FFD700 12.5%,
+            #FFFF00 12.5%, #FFFF00 25%,
+            #FFD700 25%, #FFD700 37.5%,
+            #FFFF00 37.5%, #FFFF00 50%,
+            #FFD700 50%, #FFD700 62.5%,
+            #FFFF00 62.5%, #FFFF00 75%,
+            #FFD700 75%, #FFD700 87.5%,
+            #FFFF00 87.5%, #FFFF00 100%
+        );
+    background-size: 10px 10px, 10px 10px;
+    border: 2px solid #DAA520;
+    animation: sunMove 30s ease-in-out infinite;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
 }
 
-.cloud:before,
-.cloud:after {
+.sun::before {
     content: '';
     position: absolute;
-    background: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    background: 
+        linear-gradient(0deg, 
+            #FFFF99 0%, #FFFF99 25%,
+            #FFFFCC 25%, #FFFFCC 50%,
+            #FFFF99 50%, #FFFF99 75%,
+            #FFFFCC 75%, #FFFFCC 100%
+        );
+    background-size: 5px 5px;
+}
+
+@keyframes sunMove {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(5deg); }
+}
+
+/* Minecraft Clouds */
+.cloud {
+    position: absolute;
+    background: 
+        repeating-linear-gradient(
+            0deg,
+            #FFFFFF 0px,
+            #FFFFFF 4px,
+            #F0F8FF 4px,
+            #F0F8FF 8px
+        );
+    opacity: 0.9;
+    animation: float 25s infinite linear;
 }
 
 .cloud1 {
-    width: 80px;
-    height: 20px;
+    width: 96px;
+    height: 32px;
     top: 20%;
-    left: -100px;
-    box-shadow: 
-        0 0 0 4px white,
-        20px 0 0 4px white,
-        40px 0 0 4px white,
-        60px 0 0 4px white;
+    left: -120px;
+    background: 
+        repeating-linear-gradient(
+            0deg,
+            #FFFFFF 0px,
+            #FFFFFF 8px,
+            #F0F8FF 8px,
+            #F0F8FF 16px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            #FFFFFF 0px,
+            #FFFFFF 8px,
+            #F0F8FF 8px,
+            #F0F8FF 16px
+        );
+    background-size: 16px 16px, 16px 16px;
 }
 
 .cloud2 {
-    width: 60px;
-    height: 20px;
-    top: 40%;
-    left: -80px;
-    animation-delay: -10s;
-    box-shadow: 
-        0 0 0 4px white,
-        20px 0 0 4px white,
-        40px 0 0 4px white;
+    width: 80px;
+    height: 24px;
+    top: 35%;
+    left: -100px;
+    animation-delay: -12s;
+    background: 
+        repeating-linear-gradient(
+            0deg,
+            #FFFFFF 0px,
+            #FFFFFF 6px,
+            #F0F8FF 6px,
+            #F0F8FF 12px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            #FFFFFF 0px,
+            #FFFFFF 6px,
+            #F0F8FF 6px,
+            #F0F8FF 12px
+        );
+    background-size: 12px 12px, 12px 12px;
 }
 
 .cloud3 {
-    width: 100px;
-    height: 20px;
-    top: 60%;
-    left: -120px;
-    animation-delay: -5s;
-    box-shadow: 
-        0 0 0 4px white,
-        20px 0 0 4px white,
-        40px 0 0 4px white,
-        60px 0 0 4px white,
-        80px 0 0 4px white;
+    width: 112px;
+    height: 40px;
+    top: 50%;
+    left: -140px;
+    animation-delay: -6s;
+    background: 
+        repeating-linear-gradient(
+            0deg,
+            #FFFFFF 0px,
+            #FFFFFF 10px,
+            #F0F8FF 10px,
+            #F0F8FF 20px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            #FFFFFF 0px,
+            #FFFFFF 10px,
+            #F0F8FF 10px,
+            #F0F8FF 20px
+        );
+    background-size: 20px 20px, 20px 20px;
 }
 
 @keyframes float {
@@ -130,40 +220,126 @@ body {
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 60px;
+    height: 80px;
     background: 
         repeating-linear-gradient(
             90deg,
             #228B22 0px,
-            #228B22 20px,
-            #32CD32 20px,
-            #32CD32 40px
+            #228B22 16px,
+            #32CD32 16px,
+            #32CD32 32px,
+            #228B22 32px,
+            #228B22 48px,
+            #90EE90 48px,
+            #90EE90 64px
         );
     z-index: 1;
 }
 
-/* Main container */
+/* Main container - Minecraft Grass Block */
 .login-container {
     position: relative;
     z-index: 10;
     max-width: 420px;
     margin: 80px auto 0;
-    background: 
-        linear-gradient(45deg, #8B4513 25%, transparent 25%),
-        linear-gradient(-45deg, #8B4513 25%, transparent 25%),
-        linear-gradient(45deg, transparent 75%, #8B4513 75%),
-        linear-gradient(-45deg, transparent 75%, #8B4513 75%),
-        #A0522D;
-    background-size: 20px 20px;
-    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
-    border: 6px solid #654321;
+    border: 0;
     border-radius: 0;
     box-shadow: 
-        0 0 0 2px #8B4513,
         8px 8px 0 0 #2F4F2F,
-        8px 8px 0 2px #1C3A1C;
-    padding: 40px 35px;
+        8px 8px 0 2px #1C3A1C,
+        16px 16px 20px rgba(0,0,0,0.3);
+    padding: 0;
     position: relative;
+    overflow: hidden;
+}
+
+/* Grass top part */
+.grass-top {
+    height: 80px;
+    background: 
+        repeating-linear-gradient(
+            0deg,
+            #228B22 0px,
+            #228B22 8px,
+            #32CD32 8px,
+            #32CD32 16px,
+            #90EE90 16px,
+            #90EE90 24px,
+            #228B22 24px,
+            #228B22 32px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            #228B22 0px,
+            #228B22 8px,
+            #32CD32 8px,
+            #32CD32 16px,
+            #90EE90 16px,
+            #90EE90 24px,
+            #228B22 24px,
+            #228B22 32px
+        );
+    background-size: 32px 32px, 32px 32px;
+    border-bottom: 4px solid #1C3A1C;
+    position: relative;
+}
+
+/* Grass blades on top */
+.grass-top::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 0;
+    width: 100%;
+    height: 16px;
+    background: 
+        repeating-linear-gradient(
+            90deg,
+            transparent 0px,
+            transparent 12px,
+            #228B22 12px,
+            #228B22 16px,
+            transparent 16px,
+            transparent 20px,
+            #32CD32 20px,
+            #32CD32 24px,
+            transparent 24px,
+            transparent 36px,
+            #90EE90 36px,
+            #90EE90 40px,
+            transparent 40px,
+            transparent 48px
+        );
+}
+
+/* Dirt/Earth part */
+.dirt-section {
+    background: 
+        repeating-linear-gradient(
+            0deg,
+            #8B4513 0px,
+            #8B4513 8px,
+            #A0522D 8px,
+            #A0522D 16px,
+            #654321 16px,
+            #654321 24px,
+            #8B4513 24px,
+            #8B4513 32px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            #8B4513 0px,
+            #8B4513 8px,
+            #A0522D 8px,
+            #A0522D 16px,
+            #654321 16px,
+            #654321 24px,
+            #8B4513 24px,
+            #8B4513 32px
+        );
+    background-size: 32px 32px, 32px 32px;
+    padding: 40px 35px;
+    min-height: 300px;
 }
 
 /* Minecraft logo/title */
@@ -196,36 +372,64 @@ body {
     text-shadow: 1px 1px 0 #006400;
 }
 
-/* Creeper face decoration */
+/* Improved Creeper face decoration */
 .creeper-face {
     position: absolute;
-    top: -30px;
+    top: -40px;
     left: 50%;
     transform: translateX(-50%);
-    width: 60px;
-    height: 60px;
-    background: #0F5132;
+    width: 64px;
+    height: 64px;
+    background: 
+        repeating-linear-gradient(
+            0deg,
+            #0F5132 0px,
+            #0F5132 8px,
+            #228B22 8px,
+            #228B22 16px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            #0F5132 0px,
+            #0F5132 8px,
+            #228B22 8px,
+            #228B22 16px
+        );
+    background-size: 16px 16px, 16px 16px;
     border: 3px solid #0A3D26;
     box-shadow: 
-        inset 0 0 0 2px #0F5132,
-        4px 4px 0 0 #2F4F2F;
+        4px 4px 0 0 #2F4F2F,
+        4px 4px 0 3px #1C3A1C;
+    position: relative;
 }
 
-.creeper-face:before {
+/* Creeper face pattern */
+.creeper-face::before {
     content: '';
     position: absolute;
-    top: 15px;
-    left: 15px;
-    width: 8px;
-    height: 8px;
-    background: #000;
-    box-shadow: 
-        12px 0 0 0 #000,
-        0 8px 0 0 #000,
-        4px 8px 0 0 #000,
-        8px 8px 0 0 #000,
-        12px 8px 0 0 #000,
-        6px 16px 0 0 #000;
+    top: 16px;
+    left: 16px;
+    width: 32px;
+    height: 32px;
+    background: 
+        linear-gradient(0deg, 
+            transparent 0%, transparent 25%,
+            #000 25%, #000 37.5%,
+            transparent 37.5%, transparent 50%,
+            #000 50%, #000 62.5%,
+            transparent 62.5%, transparent 75%,
+            #000 75%, #000 100%
+        ),
+        linear-gradient(90deg, 
+            transparent 0%, transparent 12.5%,
+            #000 12.5%, #000 25%,
+            transparent 25%, transparent 37.5%,
+            #000 37.5%, #000 62.5%,
+            transparent 62.5%, transparent 75%,
+            #000 75%, #000 87.5%,
+            transparent 87.5%, transparent 100%
+        );
+    background-size: 8px 8px, 8px 8px;
 }
 
 /* Form styling */
@@ -240,13 +444,21 @@ body {
     font-family: 'Press Start 2P', monospace;
     font-size: 10px;
     background: 
-        linear-gradient(45deg, #F5F5DC 25%, transparent 25%),
-        linear-gradient(-45deg, #F5F5DC 25%, transparent 25%),
-        linear-gradient(45deg, transparent 75%, #F5F5DC 75%),
-        linear-gradient(-45deg, transparent 75%, #F5F5DC 75%),
-        #FFFACD;
-    background-size: 8px 8px;
-    background-position: 0 0, 0 4px, 4px -4px, -4px 0px;
+        repeating-linear-gradient(
+            0deg,
+            #F5F5DC 0px,
+            #F5F5DC 4px,
+            #FFFACD 4px,
+            #FFFACD 8px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            #F5F5DC 0px,
+            #F5F5DC 4px,
+            #FFFACD 4px,
+            #FFFACD 8px
+        );
+    background-size: 8px 8px, 8px 8px;
     border: 3px solid #8B4513;
     border-radius: 0;
     color: #2F4F2F;
@@ -264,12 +476,21 @@ body {
         inset -2px -2px 0 0 #999,
         0 0 0 3px rgba(255, 215, 0, 0.3);
     background: 
-        linear-gradient(45deg, #FFFAF0 25%, transparent 25%),
-        linear-gradient(-45deg, #FFFAF0 25%, transparent 25%),
-        linear-gradient(45deg, transparent 75%, #FFFAF0 75%),
-        linear-gradient(-45deg, transparent 75%, #FFFAF0 75%),
-        #FFFFF0;
-    background-size: 8px 8px;
+        repeating-linear-gradient(
+            0deg,
+            #FFFAF0 0px,
+            #FFFAF0 4px,
+            #FFFFF0 4px,
+            #FFFFF0 8px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            #FFFAF0 0px,
+            #FFFAF0 4px,
+            #FFFFF0 4px,
+            #FFFFF0 8px
+        );
+    background-size: 8px 8px, 8px 8px;
 }
 
 .form-input::placeholder {
@@ -284,13 +505,21 @@ body {
     font-family: 'Press Start 2P', monospace;
     font-size: 12px;
     background: 
-        linear-gradient(45deg, #32CD32 25%, transparent 25%),
-        linear-gradient(-45deg, #32CD32 25%, transparent 25%),
-        linear-gradient(45deg, transparent 75%, #32CD32 75%),
-        linear-gradient(-45deg, transparent 75%, #32CD32 75%),
-        #228B22;
-    background-size: 12px 12px;
-    background-position: 0 0, 0 6px, 6px -6px, -6px 0px;
+        repeating-linear-gradient(
+            0deg,
+            #32CD32 0px,
+            #32CD32 6px,
+            #228B22 6px,
+            #228B22 12px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            #32CD32 0px,
+            #32CD32 6px,
+            #228B22 6px,
+            #228B22 12px
+        );
+    background-size: 12px 12px, 12px 12px;
     color: white;
     border: 4px solid #006400;
     border-radius: 0;
@@ -306,12 +535,21 @@ body {
 
 .minecraft-btn:hover {
     background: 
-        linear-gradient(45deg, #90EE90 25%, transparent 25%),
-        linear-gradient(-45deg, #90EE90 25%, transparent 25%),
-        linear-gradient(45deg, transparent 75%, #90EE90 75%),
-        linear-gradient(-45deg, transparent 75%, #90EE90 75%),
-        #32CD32;
-    background-size: 12px 12px;
+        repeating-linear-gradient(
+            0deg,
+            #90EE90 0px,
+            #90EE90 6px,
+            #32CD32 6px,
+            #32CD32 12px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            #90EE90 0px,
+            #90EE90 6px,
+            #32CD32 6px,
+            #32CD32 12px
+        );
+    background-size: 12px 12px, 12px 12px;
     transform: translate(2px, 2px);
     box-shadow: 
         inset 2px 2px 0 0 #98FB98,
@@ -329,12 +567,21 @@ body {
 /* Secondary button (register) */
 .secondary-btn {
     background: 
-        linear-gradient(45deg, #4169E1 25%, transparent 25%),
-        linear-gradient(-45deg, #4169E1 25%, transparent 25%),
-        linear-gradient(45deg, transparent 75%, #4169E1 75%),
-        linear-gradient(-45deg, transparent 75%, #4169E1 75%),
-        #0000CD;
-    background-size: 12px 12px;
+        repeating-linear-gradient(
+            0deg,
+            #4169E1 0px,
+            #4169E1 6px,
+            #0000CD 6px,
+            #0000CD 12px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            #4169E1 0px,
+            #4169E1 6px,
+            #0000CD 6px,
+            #0000CD 12px
+        );
+    background-size: 12px 12px, 12px 12px;
     border-color: #000080;
     box-shadow: 
         inset 2px 2px 0 0 #6495ED,
@@ -344,23 +591,41 @@ body {
 
 .secondary-btn:hover {
     background: 
-        linear-gradient(45deg, #6495ED 25%, transparent 25%),
-        linear-gradient(-45deg, #6495ED 25%, transparent 25%),
-        linear-gradient(45deg, transparent 75%, #6495ED 75%),
-        linear-gradient(-45deg, transparent 75%, #6495ED 75%),
-        #4169E1;
-    background-size: 12px 12px;
+        repeating-linear-gradient(
+            0deg,
+            #6495ED 0px,
+            #6495ED 6px,
+            #4169E1 6px,
+            #4169E1 12px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            #6495ED 0px,
+            #6495ED 6px,
+            #4169E1 6px,
+            #4169E1 12px
+        );
+    background-size: 12px 12px, 12px 12px;
 }
 
 /* Error message */
 .error-message {
     background: 
-        linear-gradient(45deg, #FF6347 25%, transparent 25%),
-        linear-gradient(-45deg, #FF6347 25%, transparent 25%),
-        linear-gradient(45deg, transparent 75%, #FF6347 75%),
-        linear-gradient(-45deg, transparent 75%, #FF6347 75%),
-        #DC143C;
-    background-size: 8px 8px;
+        repeating-linear-gradient(
+            0deg,
+            #FF6347 0px,
+            #FF6347 4px,
+            #DC143C 4px,
+            #DC143C 8px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            #FF6347 0px,
+            #FF6347 4px,
+            #DC143C 4px,
+            #DC143C 8px
+        );
+    background-size: 8px 8px, 8px 8px;
     color: white;
     padding: 15px;
     margin-bottom: 20px;
@@ -383,6 +648,9 @@ body {
 @media (max-width: 500px) {
     .login-container {
         margin: 40px 20px 0;
+    }
+    
+    .dirt-section {
         padding: 30px 25px;
     }
     
@@ -414,9 +682,17 @@ body {
 
 .particle {
     position: absolute;
-    width: 4px;
-    height: 4px;
-    background: #FFD700;
+    width: 6px;
+    height: 6px;
+    background: 
+        repeating-linear-gradient(
+            0deg,
+            #FFD700 0px,
+            #FFD700 2px,
+            #FFFF00 2px,
+            #FFFF00 4px
+        );
+    background-size: 4px 4px;
     animation: sparkle 3s infinite;
 }
 
@@ -435,6 +711,7 @@ body {
 <body>
     <!-- Background elements -->
     <div class="bg-elements">
+        <div class="sun"></div>
         <div class="cloud cloud1"></div>
         <div class="cloud cloud2"></div>
         <div class="cloud cloud3"></div>
@@ -456,34 +733,40 @@ body {
         <!-- Creeper face decoration -->
         <div class="creeper-face"></div>
         
-        <!-- Title -->
-        <div class="minecraft-title">
-            <div class="title-text">CRAFT LOGIN</div>
-            <div class="subtitle">Enter the World</div>
+        <!-- Grass top section -->
+        <div class="grass-top"></div>
+        
+        <!-- Dirt/Earth section with form -->
+        <div class="dirt-section">
+            <!-- Title -->
+            <div class="minecraft-title">
+                <div class="title-text">ANMELDUNG</div>
+                <div class="subtitle">Betrete die Welt</div>
+            </div>
+
+            <!-- Error message -->
+            <?php if (isset($error)): ?>
+                <div class="error-message"><?= htmlspecialchars($error); ?></div>
+            <?php endif; ?>
+
+            <!-- Login form -->
+            <form method="POST" action="nutzer_login.php">
+                <div class="form-group">
+                    <input type="text" name="username" class="form-input" placeholder="Benutzername" required>
+                </div>
+                
+                <div class="form-group">
+                    <input type="password" name="password" class="form-input" placeholder="Passwort" required>
+                </div>
+                
+                <button type="submit" class="minecraft-btn">Anmeldung</button>
+            </form>
+
+            <!-- Register button -->
+            <form action="nutzer_registrierung.php" method="get">
+                <button type="submit" class="minecraft-btn secondary-btn">Registrierung</button>
+            </form>
         </div>
-
-        <!-- Error message -->
-        <?php if (isset($error)): ?>
-            <div class="error-message"><?= htmlspecialchars($error); ?></div>
-        <?php endif; ?>
-
-        <!-- Login form -->
-        <form method="POST" action="nutzer_login.php">
-            <div class="form-group">
-                <input type="text" name="username" class="form-input" placeholder="Spielername" required>
-            </div>
-            
-            <div class="form-group">
-                <input type="password" name="password" class="form-input" placeholder="Geheimes Passwort" required>
-            </div>
-            
-            <button type="submit" class="minecraft-btn">Anmelden</button>
-        </form>
-
-        <!-- Register button -->
-        <form action="nutzer_registrierung.php" method="get">
-            <button type="submit" class="minecraft-btn secondary-btn">Registrieren</button>
-        </form>
     </div>
 </body>
 </html>
