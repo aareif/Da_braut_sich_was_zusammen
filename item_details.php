@@ -49,7 +49,7 @@ $db->disconnect();
 </div>
     <div class="container">
         <div class="clearfix">
-            <a href="suche.php" class="back-btn">Zurück zur Suche</a>
+            <a href="suche.php" class="button">Zurück zur Suche</a>
         </div>
         <h1>Item Details</h1>
         <?php if ($data): ?>
