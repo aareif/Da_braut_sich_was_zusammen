@@ -241,7 +241,7 @@ body {
     position: relative;
     z-index: 10;
     max-width: 420px;
-    margin: 80px auto 0;
+    margin: 80px auto 0 268px;
     border: 0;
     border-radius: 0;
     box-shadow: 
@@ -372,65 +372,6 @@ body {
     text-shadow: 1px 1px 0 #006400;
 }
 
-/* Improved Creeper face decoration */
-.creeper-face {
-    position: absolute;
-    top: -40px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 64px;
-    height: 64px;
-    background: 
-        repeating-linear-gradient(
-            0deg,
-            #0F5132 0px,
-            #0F5132 8px,
-            #228B22 8px,
-            #228B22 16px
-        ),
-        repeating-linear-gradient(
-            90deg,
-            #0F5132 0px,
-            #0F5132 8px,
-            #228B22 8px,
-            #228B22 16px
-        );
-    background-size: 16px 16px, 16px 16px;
-    border: 3px solid #0A3D26;
-    box-shadow: 
-        4px 4px 0 0 #2F4F2F,
-        4px 4px 0 3px #1C3A1C;
-    position: relative;
-}
-
-/* Creeper face pattern */
-.creeper-face::before {
-    content: '';
-    position: absolute;
-    top: 16px;
-    left: 16px;
-    width: 32px;
-    height: 32px;
-    background: 
-        linear-gradient(0deg, 
-            transparent 0%, transparent 25%,
-            #000 25%, #000 37.5%,
-            transparent 37.5%, transparent 50%,
-            #000 50%, #000 62.5%,
-            transparent 62.5%, transparent 75%,
-            #000 75%, #000 100%
-        ),
-        linear-gradient(90deg, 
-            transparent 0%, transparent 12.5%,
-            #000 12.5%, #000 25%,
-            transparent 25%, transparent 37.5%,
-            #000 37.5%, #000 62.5%,
-            transparent 62.5%, transparent 75%,
-            #000 75%, #000 87.5%,
-            transparent 87.5%, transparent 100%
-        );
-    background-size: 8px 8px, 8px 8px;
-}
 
 /* Form styling */
 .form-group {
@@ -730,8 +671,6 @@ body {
     </div>
 
     <div class="login-container">
-        <!-- Creeper face decoration -->
-        <div class="creeper-face"></div>
         
         <!-- Grass top section -->
         <div class="grass-top"></div>
