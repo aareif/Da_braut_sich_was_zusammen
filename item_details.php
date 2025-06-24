@@ -52,6 +52,11 @@ $db->disconnect();
     </style>
 </head>
 <body>
+    <div class="logout-container">
+    <form action="nutzer_logout.php" method="post">
+        <button type="submit" class="logout-btn">Abmelden</button>
+    </form>
+</div>
     <div class="container">
         <div class="clearfix">
             <a href="suche.php" class="back-btn">Zurück zur Suche</a>
