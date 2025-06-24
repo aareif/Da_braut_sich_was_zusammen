@@ -39,17 +39,7 @@ $db->disconnect();
 <head>
     <meta charset="UTF-8">
     <title>Item Details</title>
-    <style>
-        body { font-family: Arial, sans-serif; background: #edf2f7; color: #4a5568; margin: 0; padding: 20px;}
-        .container { max-width: 500px; margin: 50px auto; padding: 30px; background: #fff; border-radius: 10px; box-shadow: 0 4px 6px -1px #0000001a;}
-        .back-btn { display: inline-block; margin-bottom: 15px; padding: 10px 20px; background: #3182ce; color: #fff; border-radius: 6px; text-decoration: none; }
-        .back-btn:hover { background: #2c5282; }
-        .details { padding: 18px; background: #f7fafc; border-radius: 8px; border: 1px solid #e2e8f0;}
-        h1 { margin-bottom: 20px;}
-        .detail-row { margin-bottom: 10px;}
-        .label { font-weight: bold; }
-        .clearfix::after { content: ""; display: table; clear: both; }
-    </style>
+     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="logout-container">
