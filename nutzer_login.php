@@ -49,7 +49,6 @@ $db->disconnect();
         overflow: hidden;
     }
 
-    /* GROSSE SONNE */
     .sun {
         position: absolute;
         top: 40px;
@@ -67,10 +66,8 @@ $db->disconnect();
         100% { transform: translateX(-50%) translateY(20px); }
     }
 
-    /* MEHRERE PIXEL-WOLKEN */
     .cloud {
         position: absolute;
-        top: 80px;
         width: 100px;
         height: 60px;
         background: #fff;
@@ -79,21 +76,43 @@ $db->disconnect();
             40px 0 #fff,
             60px 10px #fff,
             80px 0 #fff;
-        animation: cloudMove 80s linear infinite;
+        animation: cloudMove linear infinite;
     }
 
-    .cloud:nth-child(2) {
-        top: 130px;
-        left: 10%;
-        transform: scale(0.8);
+    /* Cloud Variationen */
+    .cloud1 {
+        top: 50px;
+        left: -150px;
+        transform: scale(1);
+        animation-duration: 80s;
+    }
+
+    .cloud2 {
+        top: 100px;
+        left: -250px;
+        transform: scale(0.9);
         animation-duration: 100s;
     }
 
-    .cloud:nth-child(3) {
-        top: 60px;
-        left: 70%;
+    .cloud3 {
+        top: 150px;
+        left: -200px;
+        transform: scale(1.1);
+        animation-duration: 70s;
+    }
+
+    .cloud4 {
+        top: 70px;
+        left: -300px;
+        transform: scale(0.8);
+        animation-duration: 90s;
+    }
+
+    .cloud5 {
+        top: 180px;
+        left: -100px;
         transform: scale(1.2);
-        animation-duration: 120s;
+        animation-duration: 110s;
     }
 
     @keyframes cloudMove {
@@ -101,7 +120,6 @@ $db->disconnect();
         100% { left: 110%; }
     }
 
-    /* GRASBLOCK - realistischer */
     .container {
         position: relative;
         top: 200px;
@@ -162,10 +180,9 @@ $db->disconnect();
         margin-bottom: 15px;
     }
 
-    /* STRAND OBEN */
     .sand {
         position: absolute;
-        bottom: 0;
+        bottom: 100px;
         width: 100%;
         height: 50px;
         background: repeating-linear-gradient(
@@ -177,10 +194,9 @@ $db->disconnect();
         );
     }
 
-    /* MEER GANZ UNTEN */
     .ocean {
         position: absolute;
-        bottom: 50px;
+        bottom: 0;
         width: 100%;
         height: 100px;
         background: repeating-linear-gradient(
@@ -201,11 +217,17 @@ $db->disconnect();
 </head>
 <body>
 
+<!-- Sonne -->
 <div class="sun"></div>
-<div class="cloud" style="left: 5%;"></div>
-<div class="cloud" style="left: 30%;"></div>
-<div class="cloud" style="left: 60%;"></div>
 
+<!-- Wolken in verschiedenen Höhen -->
+<div class="cloud cloud1"></div>
+<div class="cloud cloud2"></div>
+<div class="cloud cloud3"></div>
+<div class="cloud cloud4"></div>
+<div class="cloud cloud5"></div>
+
+<!-- Grasblock -->
 <div class="container">
     <h1>Anmeldung</h1>
 
@@ -224,8 +246,9 @@ $db->disconnect();
     </form>
 </div>
 
-<div class="ocean"></div>
+<!-- Strand und Meer -->
 <div class="sand"></div>
+<div class="ocean"></div>
 
 </body>
 </html>
