@@ -1,5 +1,5 @@
 <?php
-session_start(); // Session starten
+session_start();
 
 require_once 'Database.php';
 $db = new Database();
@@ -49,16 +49,16 @@ $db->disconnect();
         overflow: hidden;
     }
 
-    /* ANIMIERTE SONNE */
+    /* GROSSE SONNE */
     .sun {
         position: absolute;
         top: 40px;
         left: 50%;
         transform: translateX(-50%);
-        width: 40px;
-        height: 40px;
+        width: 80px;
+        height: 80px;
         background: #ffe066;
-        box-shadow: inset 0 0 5px #fffab3, 0 0 10px #ffd700;
+        box-shadow: inset 0 0 10px #fffab3, 0 0 20px #ffd700;
         animation: sunMove 8s ease-in-out infinite alternate;
     }
 
@@ -67,11 +67,10 @@ $db->disconnect();
         100% { transform: translateX(-50%) translateY(20px); }
     }
 
-    /* PIXEL-WOLKEN */
+    /* MEHRERE PIXEL-WOLKEN */
     .cloud {
         position: absolute;
-        top: 100px;
-        left: 20%;
+        top: 80px;
         width: 100px;
         height: 60px;
         background: #fff;
@@ -80,37 +79,58 @@ $db->disconnect();
             40px 0 #fff,
             60px 10px #fff,
             80px 0 #fff;
-        animation: cloudMove 60s linear infinite;
+        animation: cloudMove 80s linear infinite;
+    }
+
+    .cloud:nth-child(2) {
+        top: 130px;
+        left: 10%;
+        transform: scale(0.8);
+        animation-duration: 100s;
+    }
+
+    .cloud:nth-child(3) {
+        top: 60px;
+        left: 70%;
+        transform: scale(1.2);
+        animation-duration: 120s;
     }
 
     @keyframes cloudMove {
-        0% { left: -150px; }
+        0% { left: -200px; }
         100% { left: 110%; }
     }
 
-    /* GRASBLOCK ALS LOGIN-KASTEN */
+    /* GRASBLOCK - realistischer */
     .container {
         position: relative;
-        top: 180px;
+        top: 200px;
         margin: 0 auto;
-        width: 320px;
-        padding: 20px;
+        width: 380px;
+        padding: 0;
         border: 4px solid #3c2f1f;
-        background: repeating-linear-gradient(
-            to bottom,
-            #3fa23f, #3fa23f 20px,
-            #865f3a 20px, #865f3a 120px
-        );
         box-shadow: 0 0 20px #000;
         border-radius: 4px;
         text-align: center;
+        background: linear-gradient(
+            to bottom,
+            #3fa23f 0px,
+            #3fa23f 50px,
+            #865f3a 50px,
+            #865f3a 100%
+        );
     }
 
     .container h1 {
+        padding-top: 20px;
         margin-bottom: 20px;
-        font-size: 16px;
+        font-size: 18px;
         color: #fff;
         text-shadow: 1px 1px #000;
+    }
+
+    .container form {
+        padding: 0 20px 20px 20px;
     }
 
     .container form input {
@@ -142,10 +162,10 @@ $db->disconnect();
         margin-bottom: 15px;
     }
 
-    /* MEER & STRAND */
+    /* STRAND OBEN */
     .sand {
         position: absolute;
-        bottom: 100px;
+        bottom: 0;
         width: 100%;
         height: 50px;
         background: repeating-linear-gradient(
@@ -157,9 +177,10 @@ $db->disconnect();
         );
     }
 
+    /* MEER GANZ UNTEN */
     .ocean {
         position: absolute;
-        bottom: 0;
+        bottom: 50px;
         width: 100%;
         height: 100px;
         background: repeating-linear-gradient(
@@ -181,7 +202,9 @@ $db->disconnect();
 <body>
 
 <div class="sun"></div>
-<div class="cloud"></div>
+<div class="cloud" style="left: 5%;"></div>
+<div class="cloud" style="left: 30%;"></div>
+<div class="cloud" style="left: 60%;"></div>
 
 <div class="container">
     <h1>Anmeldung</h1>
@@ -201,8 +224,8 @@ $db->disconnect();
     </form>
 </div>
 
-<div class="sand"></div>
 <div class="ocean"></div>
+<div class="sand"></div>
 
 </body>
 </html>
