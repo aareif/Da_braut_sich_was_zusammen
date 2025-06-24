@@ -241,7 +241,7 @@ body {
     position: relative;
     z-index: 10;
     max-width: 420px;
-    margin: 80px auto 0 268px;
+    margin: 268px auto 0;
     border: 0;
     border-radius: 0;
     box-shadow: 
