@@ -13,6 +13,9 @@ body {font-family: Arial, sans-serif; color: #4a5568; background: #edf2f7; margi
     right: 20px;
     z-index: 1000;
 }
+span.label {
+ font-weight:bold;
+}
 .logout-btn {
     padding: 10px 20px;
     background: #e53e3e;
