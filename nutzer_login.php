@@ -477,12 +477,12 @@ body {
                 <input type="password" name="password" class="form-input" placeholder="Geheimes Passwort" required>
             </div>
             
-            <button type="submit" class="minecraft-btn">WELT BETRETEN</button>
+            <button type="submit" class="minecraft-btn">Anmelden</button>
         </form>
 
         <!-- Register button -->
         <form action="nutzer_registrierung.php" method="get">
-            <button type="submit" class="minecraft-btn secondary-btn">NEUEN SPIELER ERSTELLEN</button>
+            <button type="submit" class="minecraft-btn secondary-btn">Registrieren</button>
         </form>
     </div>
 </body>
