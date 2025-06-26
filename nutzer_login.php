@@ -39,192 +39,96 @@ $db->disconnect();
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 <style>
 html, body {
-    height: 100%;
-    overflow: hidden;
+    overflow: hidden; /* 🧱 SCROLLEN VERHINDERT – EINZIGER FIX */
+}
+
+body {
+    font-family: 'Press Start 2P', cursive;
+    background-color: #87CEEB;
     margin: 0;
     padding: 0;
-    font-family: 'Press Start 2P', monospace;
-    background: linear-gradient(180deg, #87CEEB 0%, #B0E0E6 50%, #87CEFA 100%);
+}
+
+.login-container {
+    width: 400px;
+    margin: 100px auto;
+    background-color: #A0522D;
+    border: 5px solid #8B4513;
+    padding: 20px;
+    box-shadow: 10px 10px 0 #000;
+}
+
+.grass-top {
+    height: 50px;
+    background-color: #228B22;
+    border-bottom: 5px solid #006400;
+}
+
+.minecraft-title {
+    text-align: center;
+    color: #FFD700;
+    font-size: 24px;
+    margin: 20px 0;
+    text-shadow: 2px 2px #000;
+}
+
+.subtitle {
+    text-align: center;
+    color: #90EE90;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    background-color: #F5F5DC;
+    border: 2px solid #8B4513;
     box-sizing: border-box;
 }
 
-/* Fixierte Hintergrund-Elemente */
-.bg-elements {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 1;
-}
-
-/* Sonne */
-.sun {
-    position: absolute;
-    top: 15%;
-    right: 20%;
-    width: 80px;
-    height: 80px;
-    background:
-        linear-gradient(0deg, #FFD700 0%, #FFD700 12.5%, #FFFF00 12.5%, #FFFF00 25%, #FFD700 25%, #FFD700 37.5%, #FFFF00 37.5%, #FFFF00 50%, #FFD700 50%, #FFD700 62.5%, #FFFF00 62.5%, #FFFF00 75%, #FFD700 75%, #FFD700 87.5%, #FFFF00 87.5%, #FFFF00 100%),
-        linear-gradient(90deg, #FFD700 0%, #FFD700 12.5%, #FFFF00 12.5%, #FFFF00 25%, #FFD700 25%, #FFD700 37.5%, #FFFF00 37.5%, #FFFF00 50%, #FFD700 50%, #FFD700 62.5%, #FFFF00 62.5%, #FFFF00 75%, #FFD700 75%, #FFD700 87.5%, #FFFF00 87.5%, #FFFF00 100%);
-    background-size: 10px 10px, 10px 10px;
-    border: 2px solid #DAA520;
-    animation: sunMove 30s ease-in-out infinite;
-    box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
-    z-index: 1;
-}
-
-.sun::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 40px;
-    height: 40px;
-    background:
-        linear-gradient(0deg, #FFFF99 0%, #FFFF99 25%, #FFFFCC 25%, #FFFFCC 50%, #FFFF99 50%, #FFFF99 75%, #FFFFCC 75%, #FFFFCC 100%);
-    background-size: 5px 5px;
-}
-
-@keyframes sunMove {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    50% { transform: translateY(-10px) rotate(5deg); }
-}
-
-@keyframes float {
-    from { transform: translateX(-200px); }
-    to { transform: translateX(100vw); }
-}
-
-.cloud {
-    position: absolute;
-    background:
-        repeating-linear-gradient(0deg, #FFFFFF 0px, #FFFFFF 4px, #F0F8FF 4px, #F0F8FF 8px);
-    opacity: 0.9;
-    animation: float 25s infinite linear;
-    z-index: 1;
-}
-
-.cloud1 { width: 96px; height: 32px; top: 20%; left: -120px; }
-.cloud2 { width: 80px; height: 24px; top: 35%; left: -100px; animation-delay: -12s; }
-.cloud3 { width: 112px; height: 40px; top: 50%; left: -140px; animation-delay: -6s; }
-
-/* Login-Container */
-.login-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 10;
-    width: 420px;
-    box-shadow: 8px 8px 0 0 #2F4F2F, 8px 8px 0 2px #1C3A1C, 16px 16px 20px rgba(0,0,0,0.3);
-}
-
-/* Gras- und Erdblock */
-.grass-top {
-    height: 80px;
-    background:
-        repeating-linear-gradient(0deg, #228B22 0px, #228B22 8px, #32CD32 8px, #32CD32 16px, #90EE90 16px, #90EE90 24px, #228B22 24px, #228B22 32px),
-        repeating-linear-gradient(90deg, #228B22 0px, #228B22 8px, #32CD32 8px, #32CD32 16px, #90EE90 16px, #90EE90 24px, #228B22 24px, #228B22 32px);
-    background-size: 32px 32px;
-    border-bottom: 4px solid #1C3A1C;
-    position: relative;
-}
-
-.dirt-section {
-    background:
-        repeating-linear-gradient(0deg, #8B4513 0px, #8B4513 8px, #A0522D 8px, #A0522D 16px, #654321 16px, #654321 24px, #8B4513 24px, #8B4513 32px),
-        repeating-linear-gradient(90deg, #8B4513 0px, #8B4513 8px, #A0522D 8px, #A0522D 16px, #654321 16px, #654321 24px, #8B4513 24px, #8B4513 32px);
-    background-size: 32px 32px;
-    padding: 40px 35px;
-}
-
-/* Titel */
-.minecraft-title {
-    text-align: center;
-    margin-bottom: 30px;
-}
-.title-text {
-    font-size: 18px;
-    color: #FFD700;
-    text-shadow: 2px 2px 0 #B8860B, 4px 4px 0 #8B6914, 6px 6px 8px rgba(0,0,0,0.3);
-    animation: glow 2s ease-in-out infinite alternate;
-}
-@keyframes glow {
-    from { text-shadow: 2px 2px 0 #B8860B, 4px 4px 0 #8B6914, 6px 6px 8px rgba(0,0,0,0.3), 0 0 10px #FFD700; }
-    to { text-shadow: 2px 2px 0 #B8860B, 4px 4px 0 #8B6914, 6px 6px 8px rgba(0,0,0,0.3), 0 0 30px #FFD700; }
-}
-.subtitle {
-    font-size: 8px;
-    color: #90EE90;
-    text-shadow: 1px 1px 0 #006400;
-}
-
-/* Formular */
-.form-group { margin-bottom: 20px; }
-.form-input {
-    width: 100%;
-    padding: 12px 16px;
-    font-size: 10px;
-    background:
-        repeating-linear-gradient(0deg, #F5F5DC 0px, #F5F5DC 4px, #FFFACD 4px, #FFFACD 8px),
-        repeating-linear-gradient(90deg, #F5F5DC 0px, #F5F5DC 4px, #FFFACD 4px, #FFFACD 8px);
-    background-size: 8px 8px;
-    border: 3px solid #8B4513;
-    color: #2F4F2F;
-}
 .minecraft-btn {
     width: 100%;
-    padding: 15px;
-    font-size: 12px;
-    background:
-        repeating-linear-gradient(0deg, #32CD32 0px, #32CD32 6px, #228B22 6px, #228B22 12px),
-        repeating-linear-gradient(90deg, #32CD32 0px, #32CD32 6px, #228B22 6px, #228B22 12px);
-    border: 4px solid #006400;
+    padding: 10px;
+    background-color: #32CD32;
+    border: 2px solid #006400;
     color: white;
+    font-size: 14px;
     cursor: pointer;
 }
+
 .minecraft-btn:hover {
-    background:
-        repeating-linear-gradient(0deg, #90EE90 0px, #90EE90 6px, #32CD32 6px, #32CD32 12px),
-        repeating-linear-gradient(90deg, #90EE90 0px, #90EE90 6px, #32CD32 6px, #32CD32 12px);
+    background-color: #228B22;
 }
 </style>
 </head>
 <body>
 
-<div class="bg-elements">
-    <div class="sun"></div>
-    <div class="cloud cloud1"></div>
-    <div class="cloud cloud2"></div>
-    <div class="cloud cloud3"></div>
-</div>
-
 <div class="login-container">
     <div class="grass-top"></div>
-    <div class="dirt-section">
-        <div class="minecraft-title">
-            <div class="title-text">Minecraft Login</div>
-            <div class="subtitle">Bitte anmelden</div>
+    <div class="minecraft-title">Minecraft Login</div>
+    <div class="subtitle">Bitte anmelden</div>
+
+    <?php if (!empty($error)) : ?>
+        <div class="error-message" style="color:red; text-align:center; margin-bottom:10px;">
+            <?= htmlspecialchars($error) ?>
         </div>
+    <?php endif; ?>
 
-        <?php if (!empty($error)) : ?>
-            <div class="error-message"><?= htmlspecialchars($error) ?></div>
-        <?php endif; ?>
-
-        <form method="POST" action="">
-            <div class="form-group">
-                <input type="text" name="username" class="form-input" placeholder="Benutzername" required>
-            </div>
-            <div class="form-group">
-                <input type="password" name="password" class="form-input" placeholder="Passwort" required>
-            </div>
-            <button type="submit" class="minecraft-btn">Einloggen</button>
-        </form>
-    </div>
+    <form method="POST" action="">
+        <div class="form-group">
+            <input type="text" name="username" class="form-input" placeholder="Benutzername" required>
+        </div>
+        <div class="form-group">
+            <input type="password" name="password" class="form-input" placeholder="Passwort" required>
+        </div>
+        <button type="submit" class="minecraft-btn">Einloggen</button>
+    </form>
 </div>
 
 </body>
