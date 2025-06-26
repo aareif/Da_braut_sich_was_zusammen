@@ -38,102 +38,78 @@ $db->disconnect();
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
   <title>Minecraft Login</title>
-
-  <!-- Minecraft-Font eingebettet -->
   <style>
     @font-face {
       font-family: 'Minecraftia';
-      src: url('https://fonts.cdnfonts.com/s/19893/Minecraftia.woff') format('woff');
+      src: url('https://cdn.jsdelivr.net/gh/IdreesInc/Minecraft-Font@master/Minecraftia.ttf') format('truetype');
     }
 
-    html, body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Minecraftia', monospace;
+    body {
       background-color: #1e1e1e;
-      background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABg3Am1AAAAyUlEQVRoQ+2ZMQ6DMAxFbQ3//0sXjAUB7LtQ9N2S3EmXkQUBPQ7Bh3Kp8GzIyxVMBcM8lwCxMDwvF+wSVAAZ3zn8sR+d7B4RbEEp0QkH4nA+HQFTkBzTQCLxQkNgCML+1oQmyMrb8JSsB2RaDBJBK2FZyL5RC5qOHYMEGy0yF1hxQkFMCTcgK3GUEXyAKxFU3AeOswhaw9TViQmxVfxb2FuVP/BxyDh0oUvo0fcpgAAAABJRU5ErkJggg==');
-      background-size: 64px;
-      image-rendering: pixelated;
-    }
-
-    .login-container {
+      font-family: 'Minecraftia', monospace;
+      color: white;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
+      margin: 0;
     }
 
-    .minecraft-block {
-      background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABg3Am1AAAAyUlEQVRoQ+2ZMQ6DMAxFbQ3//0sXjAUB7LtQ9N2S3EmXkQUBPQ7Bh3Kp8GzIyxVMBcM8lwCxMDwvF+wSVAAZ3zn8sR+d7B4RbEEp0QkH4nA+HQFTkBzTQCLxQkNgCML+1oQmyMrb8JSsB2RaDBJBK2FZyL5RC5qOHYMEGy0yF1hxQkFMCTcgK3GUEXyAKxFU3AeOswhaw9TViQmxVfxb2FuVP/BxyDh0oUvo0fcpgAAAABJRU5ErkJggg==');
-      background-size: cover;
-      border: 4px solid #000;
-      box-shadow: 0 0 0 8px #3f3f3f, 0 0 16px #000;
-      width: 320px;
-      padding: 20px;
-      box-sizing: border-box;
+    .login-box {
+      background-color: #121212;
+      border: 5px solid #2a2a2a;
+      padding: 30px;
+      width: 400px;
+      box-shadow: 0 0 0 4px #000, inset 0 0 0 4px #000;
+    }
+
+    .login-box h1 {
       text-align: center;
-    }
-
-    .login-header {
-      font-size: 18px;
-      color: white;
-      margin-bottom: 16px;
-      background-color: rgba(0, 0, 0, 0.4);
-      padding: 4px;
-      border: 2px solid #555;
-      box-shadow: inset 0 0 4px #000;
-    }
-
-    .login-form input[type="text"],
-    .login-form input[type="password"] {
-      width: 100%;
-      margin: 8px 0;
-      padding: 8px;
-      font-family: 'Minecraftia', monospace;
-      font-size: 14px;
-      background-color: #dedede;
-      border: 2px solid #333;
-      box-shadow: inset 2px 2px #fff, inset -2px -2px #999;
-    }
-
-    .login-form button {
-      width: 100%;
-      padding: 10px;
-      font-family: 'Minecraftia', monospace;
-      font-size: 14px;
-      background-color: #6b8e23;
-      color: white;
+      background-color: #000;
       border: 2px solid #444;
+      padding: 10px;
+      margin-bottom: 30px;
+      color: #ffffff;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 2px solid #88cc33;
+      background-color: #e0e0e0;
+      color: #333;
+      font-family: 'Minecraftia', monospace;
+      font-size: 12px;
+    }
+
+    input[type="submit"] {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid #444;
+      background-color: #88cc33;
+      color: white;
+      font-family: 'Minecraftia', monospace;
+      font-size: 14px;
       cursor: pointer;
-      box-shadow: inset 2px 2px #9acd32, inset -2px -2px #556b2f;
     }
 
-    .login-form button:hover {
-      background-color: #556b2f;
-      box-shadow: inset 1px 1px #9acd32, inset -1px -1px #2f4f2f;
-    }
-
-    .login-form input:focus,
-    .login-form button:focus {
-      outline: none;
-      border-color: #9acd32;
+    input[type="submit"]:hover {
+      background-color: #76b82a;
     }
   </style>
 </head>
 <body>
-  <div class="login-container">
-    <div class="minecraft-block">
-      <div class="login-header">Willkommen!</div>
-      <form class="login-form" method="post">
-        <input type="text" name="username" placeholder="Benutzername" required />
-        <input type="password" name="password" placeholder="Passwort" required />
-        <button type="submit">Anmelden</button>
-      </form>
-    </div>
+  <div class="login-box">
+    <h1>Willkommen!</h1>
+    <form>
+      <input type="text" placeholder="Benutzername">
+      <input type="password" placeholder="Passwort">
+      <input type="submit" value="Anmelden">
+    </form>
   </div>
 </body>
 </html>
-
