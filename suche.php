@@ -219,29 +219,30 @@ body {
     z-index: 1;
 }
 
-/* Main container - Minecraft Grass Block */
+/* Main container - Minecraft Grass Block - MADE LARGER */
 .search-container {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 10;
-    max-width: 700px;
-    width: 90%;
+    width: 900px; /* Größer gemacht */
+    height: 900px; /* Quadratisch und größer */
+    max-width: 90vw;
+    max-height: 90vh;
     border: 0;
     border-radius: 0;
     box-shadow: 
-        8px 8px 0 0 #2F4F2F,
-        8px 8px 0 2px #1C3A1C,
-        16px 16px 20px rgba(0,0,0,0.3);
+        12px 12px 0 0 #2F4F2F,
+        12px 12px 0 4px #1C3A1C,
+        20px 20px 30px rgba(0,0,0,0.4);
     padding: 0;
     overflow: hidden;
-    max-height: 90vh;
 }
 
 /* Grass top part */
 .grass-top {
-    height: 60px;
+    height: 80px; /* Etwas höher */
     background: 
         repeating-linear-gradient(
             0deg,
@@ -274,11 +275,11 @@ body {
 .grass-top::before {
     content: '';
     position: absolute;
-    top: -8px;
+    top: -10px;
     left: 0;
     right: 0;
     width: 100%;
-    height: 16px;
+    height: 20px;
     background: 
         repeating-linear-gradient(
             90deg,
@@ -325,37 +326,37 @@ body {
             #8B4513 32px
         );
     background-size: 32px 32px, 32px 32px;
-    padding: 30px 35px;
+    padding: 40px 45px; /* Mehr Padding für größeren Container */
     overflow-y: auto;
-    max-height: calc(90vh - 64px);
+    height: calc(100% - 84px); /* Angepasst für höhere grass-top */
 }
 
 /* Minecraft logo/title */
 .minecraft-title {
     text-align: center;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
     position: relative;
 }
 
 .title-text {
-    font-size: 16px;
+    font-size: 20px; /* Größer für größeren Container */
     color: #FFD700;
     text-shadow: 
-        2px 2px 0 #B8860B,
-        4px 4px 0 #8B6914,
-        6px 6px 8px rgba(0,0,0,0.3);
-    letter-spacing: 2px;
-    margin-bottom: 8px;
+        3px 3px 0 #B8860B,
+        6px 6px 0 #8B6914,
+        9px 9px 12px rgba(0,0,0,0.3);
+    letter-spacing: 3px;
+    margin-bottom: 12px;
     animation: glow 2s ease-in-out infinite alternate;
 }
 
 @keyframes glow {
-    from { text-shadow: 2px 2px 0 #B8860B, 4px 4px 0 #8B6914, 6px 6px 8px rgba(0,0,0,0.3), 0 0 10px #FFD700; }
-    to { text-shadow: 2px 2px 0 #B8860B, 4px 4px 0 #8B6914, 6px 6px 8px rgba(0,0,0,0.3), 0 0 20px #FFD700, 0 0 30px #FFD700; }
+    from { text-shadow: 3px 3px 0 #B8860B, 6px 6px 0 #8B6914, 9px 9px 12px rgba(0,0,0,0.3), 0 0 15px #FFD700; }
+    to { text-shadow: 3px 3px 0 #B8860B, 6px 6px 0 #8B6914, 9px 9px 12px rgba(0,0,0,0.3), 0 0 25px #FFD700, 0 0 35px #FFD700; }
 }
 
 .subtitle {
-    font-size: 8px;
+    font-size: 10px; /* Etwas größer */
     color: #90EE90;
     text-shadow: 1px 1px 0 #006400;
 }
@@ -428,15 +429,15 @@ body {
 .search-form {
     position: relative;
     display: flex;
-    gap: 8px;
-    margin-bottom: 20px;
+    gap: 12px; /* Mehr Abstand */
+    margin-bottom: 25px;
 }
 
 .form-input {
     flex: 1;
-    padding: 12px 16px;
+    padding: 15px 20px; /* Größere Padding */
     font-family: 'Press Start 2P', monospace;
-    font-size: 10px;
+    font-size: 12px; /* Größere Schrift */
     background: 
         repeating-linear-gradient(
             0deg,
@@ -494,9 +495,9 @@ body {
 
 /* Button styling */
 .minecraft-btn {
-    padding: 12px 20px;
+    padding: 15px 25px; /* Größere Buttons */
     font-family: 'Press Start 2P', monospace;
-    font-size: 10px;
+    font-size: 12px; /* Größere Schrift */
     background: 
         repeating-linear-gradient(
             0deg,
@@ -525,8 +526,8 @@ body {
     transition: all 0.2s ease;
     text-decoration: none;
     display: inline-block;
-    margin-bottom: 10px;
-    margin-right: 10px;
+    margin-bottom: 15px;
+    margin-right: 15px;
 }
 
 .minecraft-btn:hover {
@@ -575,21 +576,21 @@ body {
     background-size: 8px 8px;
     border: 3px solid #8B4513;
     border-radius: 0;
-    max-height: 200px;
+    max-height: 250px; /* Höher für größeren Container */
     overflow-y: auto;
     width: 100%;
     box-shadow: 
         4px 4px 0 0 #2F4F2F,
         4px 4px 0 3px #1C3A1C;
-    top: 50px;
+    top: 65px; /* Angepasst für größere Input */
     left: 0;
 }
 
 .autocomplete-item {
-    padding: 10px;
+    padding: 12px; /* Mehr Padding */
     cursor: pointer;
     font-family: 'Press Start 2P', monospace;
-    font-size: 8px;
+    font-size: 10px; /* Größere Schrift */
     color: #2F4F2F;
     border-bottom: 1px solid #8B4513;
 }
@@ -610,21 +611,21 @@ body {
 
 /* Results styling */
 .results {
-    margin-top: 20px;
+    margin-top: 25px;
 }
 
 .results h2 {
-    font-size: 12px;
+    font-size: 14px; /* Größere Überschrift */
     color: #FFD700;
     text-shadow: 
         2px 2px 0 #B8860B,
         4px 4px 0 #8B6914;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .result-card {
-    padding: 12px;
-    margin-bottom: 10px;
+    padding: 15px; /* Mehr Padding */
+    margin-bottom: 12px;
     background: 
         repeating-linear-gradient(
             0deg,
@@ -646,13 +647,21 @@ body {
     box-shadow: 
         2px 2px 0 0 #2F4F2F,
         2px 2px 0 2px #1C3A1C;
+    transition: all 0.2s ease;
+}
+
+.result-card:hover {
+    transform: translate(1px, 1px);
+    box-shadow: 
+        1px 1px 0 0 #2F4F2F,
+        1px 1px 0 1px #1C3A1C;
 }
 
 .result-card a {
     text-decoration: none;
     color: #2F4F2F;
     font-family: 'Press Start 2P', monospace;
-    font-size: 8px;
+    font-size: 10px; /* Größere Schrift */
     font-weight: bold;
     transition: color 0.2s ease;
 }
@@ -663,35 +672,43 @@ body {
 }
 
 /* Responsive design */
+@media (max-width: 1000px) {
+    .search-container {
+        width: 95vw;
+        height: 95vh;
+    }
+}
+
 @media (max-width: 800px) {
     .search-container {
         position: relative;
         top: auto;
         left: auto;
         transform: none;
-        margin: 20px;
+        margin: 10px;
+        width: calc(100vw - 20px);
+        height: calc(100vh - 20px);
         max-width: none;
-        width: calc(100% - 40px);
-        max-height: calc(100vh - 40px);
+        max-height: none;
     }
     
     .dirt-section {
         padding: 25px 20px;
-        max-height: calc(100vh - 104px);
+        height: calc(100% - 84px);
     }
     
     .title-text {
-        font-size: 14px;
+        font-size: 16px;
     }
     
     .form-input {
-        font-size: 9px;
-        padding: 10px 12px;
+        font-size: 10px;
+        padding: 12px 15px;
     }
     
     .minecraft-btn {
-        font-size: 9px;
-        padding: 10px 15px;
+        font-size: 10px;
+        padding: 12px 18px;
     }
     
     .search-form {
@@ -758,8 +775,8 @@ body {
 
             <!-- Results -->
             <div class="results">
-                <h2>Suchergebnisse:</h2>
                 <?php if (isset($result)): ?>
+                    <h2>Suchergebnisse für "<?= htmlspecialchars($suchbegriff); ?>":</h2>
                     <?php if ($result->num_rows > 0): ?>
                         <?php while ($row = $result->fetch_assoc()): ?>
                             <div class="result-card">
@@ -769,7 +786,7 @@ body {
                             </div>  
                         <?php endwhile; ?>
                     <?php else: ?>
-                        <p style="color: #FFD700; font-size: 8px; text-shadow: 1px 1px 0 #B8860B;">Keine Ergebnisse gefunden.</p>
+                        <p style="color: #FFD700; font-size: 10px; text-shadow: 1px 1px 0 #B8860B;">Keine Ergebnisse gefunden.</p>
                     <?php endif; ?>
                 <?php endif; ?>
             </div>
@@ -777,10 +794,11 @@ body {
     </div>
 
     <script>
-    // Autocomplete-Logik
+    // Autocomplete-Logik - KORRIGIERT
     document.addEventListener("DOMContentLoaded", function() {
         const input = document.getElementById('suchbegriff');
         const list = document.getElementById('autocomplete-list');
+        const form = document.querySelector('.search-form');
         let activeIndex = -1;
         let items = [];
 
@@ -801,8 +819,11 @@ body {
                             div.className = "autocomplete-item";
                             div.innerHTML = item.name;
                             div.addEventListener('mousedown', function(e) {
-                                // Direkt zur Item-Details-Seite navigieren
-                                window.location.href = 'item_details.php?id=' + item.id;
+                                e.preventDefault();
+                                // KORRIGIERT: Suchbegriff setzen und Suche ausführen
+                                input.value = item.name;
+                                list.style.display = "none";
+                                form.submit(); // Formular abschicken für Suchergebnisse
                             });
                             list.appendChild(div);
                         });
@@ -828,9 +849,11 @@ body {
                 e.preventDefault();
             } else if (e.key === "Enter") {
                 if (activeIndex > -1 && currentItems[activeIndex]) {
-                    // Direkt zur Item-Details-Seite navigieren
-                    window.location.href = 'item_details.php?id=' + items[activeIndex].id;
                     e.preventDefault();
+                    // KORRIGIERT: Suchbegriff setzen und Suche ausführen
+                    input.value = items[activeIndex].name;
+                    list.style.display = "none";
+                    form.submit(); // Formular abschicken für Suchergebnisse
                 }
             } else {
                 activeIndex = -1;
