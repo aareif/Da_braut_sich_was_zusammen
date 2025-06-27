@@ -219,30 +219,30 @@ body {
     z-index: 1;
 }
 
-/* Main container - Minecraft Grass Block - MADE LARGER */
+/* Main container - Minecraft Grass Block - KLEINERER CONTAINER */
 .search-container {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 10;
-    width: 900px; /* Größer gemacht */
-    height: 900px; /* Quadratisch und größer */
+    width: 600px; /* Kleiner gemacht */
+    height: 600px; /* Quadratisch und kleiner */
     max-width: 90vw;
     max-height: 90vh;
     border: 0;
     border-radius: 0;
     box-shadow: 
-        12px 12px 0 0 #2F4F2F,
-        12px 12px 0 4px #1C3A1C,
-        20px 20px 30px rgba(0,0,0,0.4);
+        8px 8px 0 0 #2F4F2F,
+        8px 8px 0 2px #1C3A1C,
+        16px 16px 20px rgba(0,0,0,0.3);
     padding: 0;
     overflow: hidden;
 }
 
 /* Grass top part */
 .grass-top {
-    height: 80px; /* Etwas höher */
+    height: 60px;
     background: 
         repeating-linear-gradient(
             0deg,
@@ -275,11 +275,11 @@ body {
 .grass-top::before {
     content: '';
     position: absolute;
-    top: -10px;
+    top: -8px;
     left: 0;
     right: 0;
     width: 100%;
-    height: 20px;
+    height: 16px;
     background: 
         repeating-linear-gradient(
             90deg,
@@ -326,37 +326,37 @@ body {
             #8B4513 32px
         );
     background-size: 32px 32px, 32px 32px;
-    padding: 40px 45px; /* Mehr Padding für größeren Container */
+    padding: 30px 35px;
     overflow-y: auto;
-    height: calc(100% - 84px); /* Angepasst für höhere grass-top */
+    height: calc(100% - 64px);
 }
 
 /* Minecraft logo/title */
 .minecraft-title {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
     position: relative;
 }
 
 .title-text {
-    font-size: 20px; /* Größer für größeren Container */
+    font-size: 16px;
     color: #FFD700;
     text-shadow: 
-        3px 3px 0 #B8860B,
-        6px 6px 0 #8B6914,
-        9px 9px 12px rgba(0,0,0,0.3);
-    letter-spacing: 3px;
-    margin-bottom: 12px;
+        2px 2px 0 #B8860B,
+        4px 4px 0 #8B6914,
+        6px 6px 8px rgba(0,0,0,0.3);
+    letter-spacing: 2px;
+    margin-bottom: 8px;
     animation: glow 2s ease-in-out infinite alternate;
 }
 
 @keyframes glow {
-    from { text-shadow: 3px 3px 0 #B8860B, 6px 6px 0 #8B6914, 9px 9px 12px rgba(0,0,0,0.3), 0 0 15px #FFD700; }
-    to { text-shadow: 3px 3px 0 #B8860B, 6px 6px 0 #8B6914, 9px 9px 12px rgba(0,0,0,0.3), 0 0 25px #FFD700, 0 0 35px #FFD700; }
+    from { text-shadow: 2px 2px 0 #B8860B, 4px 4px 0 #8B6914, 6px 6px 8px rgba(0,0,0,0.3), 0 0 10px #FFD700; }
+    to { text-shadow: 2px 2px 0 #B8860B, 4px 4px 0 #8B6914, 6px 6px 8px rgba(0,0,0,0.3), 0 0 20px #FFD700, 0 0 30px #FFD700; }
 }
 
 .subtitle {
-    font-size: 10px; /* Etwas größer */
+    font-size: 8px;
     color: #90EE90;
     text-shadow: 1px 1px 0 #006400;
 }
@@ -429,15 +429,15 @@ body {
 .search-form {
     position: relative;
     display: flex;
-    gap: 12px; /* Mehr Abstand */
-    margin-bottom: 25px;
+    gap: 8px;
+    margin-bottom: 20px;
 }
 
 .form-input {
     flex: 1;
-    padding: 15px 20px; /* Größere Padding */
+    padding: 12px 16px;
     font-family: 'Press Start 2P', monospace;
-    font-size: 12px; /* Größere Schrift */
+    font-size: 10px;
     background: 
         repeating-linear-gradient(
             0deg,
@@ -495,9 +495,9 @@ body {
 
 /* Button styling */
 .minecraft-btn {
-    padding: 15px 25px; /* Größere Buttons */
+    padding: 12px 20px;
     font-family: 'Press Start 2P', monospace;
-    font-size: 12px; /* Größere Schrift */
+    font-size: 10px;
     background: 
         repeating-linear-gradient(
             0deg,
@@ -526,8 +526,8 @@ body {
     transition: all 0.2s ease;
     text-decoration: none;
     display: inline-block;
-    margin-bottom: 15px;
-    margin-right: 15px;
+    margin-bottom: 10px;
+    margin-right: 10px;
 }
 
 .minecraft-btn:hover {
@@ -576,21 +576,21 @@ body {
     background-size: 8px 8px;
     border: 3px solid #8B4513;
     border-radius: 0;
-    max-height: 250px; /* Höher für größeren Container */
+    max-height: 200px;
     overflow-y: auto;
     width: 100%;
     box-shadow: 
         4px 4px 0 0 #2F4F2F,
         4px 4px 0 3px #1C3A1C;
-    top: 65px; /* Angepasst für größere Input */
+    top: 50px;
     left: 0;
 }
 
 .autocomplete-item {
-    padding: 12px; /* Mehr Padding */
+    padding: 10px;
     cursor: pointer;
     font-family: 'Press Start 2P', monospace;
-    font-size: 10px; /* Größere Schrift */
+    font-size: 8px;
     color: #2F4F2F;
     border-bottom: 1px solid #8B4513;
 }
@@ -611,21 +611,21 @@ body {
 
 /* Results styling */
 .results {
-    margin-top: 25px;
+    margin-top: 20px;
 }
 
 .results h2 {
-    font-size: 14px; /* Größere Überschrift */
+    font-size: 12px;
     color: #FFD700;
     text-shadow: 
         2px 2px 0 #B8860B,
         4px 4px 0 #8B6914;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .result-card {
-    padding: 15px; /* Mehr Padding */
-    margin-bottom: 12px;
+    padding: 12px;
+    margin-bottom: 10px;
     background: 
         repeating-linear-gradient(
             0deg,
@@ -661,7 +661,7 @@ body {
     text-decoration: none;
     color: #2F4F2F;
     font-family: 'Press Start 2P', monospace;
-    font-size: 10px; /* Größere Schrift */
+    font-size: 8px;
     font-weight: bold;
     transition: color 0.2s ease;
 }
@@ -672,14 +672,14 @@ body {
 }
 
 /* Responsive design */
-@media (max-width: 1000px) {
+@media (max-width: 700px) {
     .search-container {
         width: 95vw;
         height: 95vh;
     }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 600px) {
     .search-container {
         position: relative;
         top: auto;
@@ -694,21 +694,21 @@ body {
     
     .dirt-section {
         padding: 25px 20px;
-        height: calc(100% - 84px);
+        height: calc(100% - 64px);
     }
     
     .title-text {
-        font-size: 16px;
+        font-size: 14px;
     }
     
     .form-input {
-        font-size: 10px;
-        padding: 12px 15px;
+        font-size: 9px;
+        padding: 10px 12px;
     }
     
     .minecraft-btn {
-        font-size: 10px;
-        padding: 12px 18px;
+        font-size: 9px;
+        padding: 10px 15px;
     }
     
     .search-form {
@@ -786,7 +786,7 @@ body {
                             </div>  
                         <?php endwhile; ?>
                     <?php else: ?>
-                        <p style="color: #FFD700; font-size: 10px; text-shadow: 1px 1px 0 #B8860B;">Keine Ergebnisse gefunden.</p>
+                        <p style="color: #FFD700; font-size: 8px; text-shadow: 1px 1px 0 #B8860B;">Keine Ergebnisse gefunden.</p>
                     <?php endif; ?>
                 <?php endif; ?>
             </div>
