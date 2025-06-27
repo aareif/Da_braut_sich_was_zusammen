@@ -562,8 +562,7 @@ body {
         <div class="dirt-section">
             <!-- Back button -->
             <a href="suche.php" class="minecraft-btn">Zurück zur Suche</a>
-            <!-- Rezept ansehen button -->
-<a href="rezept_anzeigen.php?id=<?= urlencode($id) ?>" class="minecraft-btn">Rezept ansehen</a>
+            
             
             <!-- Title -->
             <div class="minecraft-title">
@@ -574,6 +573,7 @@ body {
             <!-- Item details -->
             <?php if ($data): ?>
                 <?php if (!empty($data['TrankID'])): ?>
+          <a href="rezept_anzeigen.php?id=<?= urlencode($id) ?>" class="minecraft-btn">Rezept ansehen</a>
                     <div class="details">
                         <div class="detail-row"><span class="label">Name:</span> <?= htmlspecialchars($data['TrankName']) ?></div>
                         <div class="detail-row"><span class="label">Art:</span> <?= htmlspecialchars($data['Art']) ?></div>
