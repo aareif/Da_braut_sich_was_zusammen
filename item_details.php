@@ -562,6 +562,8 @@ body {
         <div class="dirt-section">
             <!-- Back button -->
             <a href="suche.php" class="minecraft-btn">Zurück zur Suche</a>
+            <!-- Rezept ansehen button -->
+<a href="rezept_anzeigen.php?id=<?= urlencode($id) ?>" class="minecraft-btn">Rezept ansehen</a>
             
             <!-- Title -->
             <div class="minecraft-title">
