@@ -32,11 +32,11 @@ $db->disconnect();
 }
 
 body {
-    min-height: 100vh;
+    height: 100vh;
     font-family: 'Press Start 2P', monospace;
     background: linear-gradient(180deg, #87CEEB 0%, #B0E0E6 50%, #87CEFA 100%);
     position: relative;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 /* Animated background elements */
@@ -221,10 +221,13 @@ body {
 
 /* Main container - Minecraft Grass Block */
 .search-container {
-    position: relative;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     z-index: 10;
-    max-width: 600px;
-    margin: 40px auto 0;
+    max-width: 700px;
+    width: 90%;
     border: 0;
     border-radius: 0;
     box-shadow: 
@@ -232,8 +235,8 @@ body {
         8px 8px 0 2px #1C3A1C,
         16px 16px 20px rgba(0,0,0,0.3);
     padding: 0;
-    position: relative;
     overflow: hidden;
+    max-height: 90vh;
 }
 
 /* Grass top part */
@@ -273,6 +276,7 @@ body {
     position: absolute;
     top: -8px;
     left: 0;
+    right: 0;
     width: 100%;
     height: 16px;
     background: 
@@ -322,7 +326,8 @@ body {
         );
     background-size: 32px 32px, 32px 32px;
     padding: 30px 35px;
-    min-height: 400px;
+    overflow-y: auto;
+    max-height: calc(90vh - 64px);
 }
 
 /* Minecraft logo/title */
@@ -355,36 +360,68 @@ body {
     text-shadow: 1px 1px 0 #006400;
 }
 
-/* Improved Diamond decoration */
-.diamond-decoration {
+/* Logout button */
+.logout-container {
     position: absolute;
-    top: -30px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 48px;
-    height: 48px;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.logout-btn {
     background: 
         repeating-linear-gradient(
-            45deg,
-            #00FFFF 0px,
-            #00FFFF 6px,
-            #87CEEB 6px,
-            #87CEEB 12px
+            0deg,
+            #FF6347 0px,
+            #FF6347 6px,
+            #DC143C 6px,
+            #DC143C 12px
         ),
         repeating-linear-gradient(
-            -45deg,
-            #00FFFF 0px,
-            #00FFFF 6px,
-            #87CEEB 6px,
-            #87CEEB 12px
+            90deg,
+            #FF6347 0px,
+            #FF6347 6px,
+            #DC143C 6px,
+            #DC143C 12px
         );
     background-size: 12px 12px, 12px 12px;
-    border: 3px solid #008B8B;
+    border: 4px solid #8B0000;
     box-shadow: 
-        4px 4px 0 0 #2F4F2F,
-        4px 4px 0 3px #1C3A1C;
-    position: relative;
-    transform: translateX(-50%) rotate(45deg);
+        inset 2px 2px 0 0 #FF7F7F,
+        inset -2px -2px 0 0 #8B0000,
+        4px 4px 0 0 #2F4F2F;
+    padding: 10px 15px;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 8px;
+    color: white;
+    border-radius: 0;
+    cursor: pointer;
+    text-shadow: 1px 1px 0 #8B0000;
+    transition: all 0.2s ease;
+}
+
+.logout-btn:hover {
+    background: 
+        repeating-linear-gradient(
+            0deg,
+            #FF7F7F 0px,
+            #FF7F7F 6px,
+            #FF6347 6px,
+            #FF6347 12px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            #FF7F7F 0px,
+            #FF7F7F 6px,
+            #FF6347 6px,
+            #FF6347 12px
+        );
+    background-size: 12px 12px, 12px 12px;
+    transform: translate(2px, 2px);
+    box-shadow: 
+        inset 2px 2px 0 0 #FFB6C1,
+        inset -2px -2px 0 0 #8B0000,
+        2px 2px 0 0 #2F4F2F;
 }
 
 /* Form styling */
@@ -523,57 +560,6 @@ body {
         inset -2px -2px 0 0 #006400;
 }
 
-/* Logout button */
-.logout-container {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    z-index: 1000;
-}
-
-.logout-btn {
-    background: 
-        repeating-linear-gradient(
-            0deg,
-            #FF6347 0px,
-            #FF6347 6px,
-            #DC143C 6px,
-            #DC143C 12px
-        ),
-        repeating-linear-gradient(
-            90deg,
-            #FF6347 0px,
-            #FF6347 6px,
-            #DC143C 6px,
-            #DC143C 12px
-        );
-    background-size: 12px 12px, 12px 12px;
-    border-color: #8B0000;
-    box-shadow: 
-        inset 2px 2px 0 0 #FF7F7F,
-        inset -2px -2px 0 0 #8B0000,
-        4px 4px 0 0 #2F4F2F;
-}
-
-.logout-btn:hover {
-    background: 
-        repeating-linear-gradient(
-            0deg,
-            #FF7F7F 0px,
-            #FF7F7F 6px,
-            #FF6347 6px,
-            #FF6347 12px
-        ),
-        repeating-linear-gradient(
-            90deg,
-            #FF7F7F 0px,
-            #FF7F7F 6px,
-            #FF6347 6px,
-            #FF6347 12px
-        );
-    background-size: 12px 12px, 12px 12px;
-}
-
 /* Autocomplete styling */
 .autocomplete-list {
     position: absolute;
@@ -677,13 +663,21 @@ body {
 }
 
 /* Responsive design */
-@media (max-width: 700px) {
+@media (max-width: 800px) {
     .search-container {
-        margin: 20px 20px 0;
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        margin: 20px;
+        max-width: none;
+        width: calc(100% - 40px);
+        max-height: calc(100vh - 40px);
     }
     
     .dirt-section {
         padding: 25px 20px;
+        max-height: calc(100vh - 104px);
     }
     
     .title-text {
@@ -708,6 +702,16 @@ body {
         width: 100%;
         margin-right: 0;
     }
+    
+    .logout-container {
+        top: 10px;
+        right: 10px;
+    }
+    
+    .logout-btn {
+        font-size: 7px;
+        padding: 8px 12px;
+    }
 }
     </style>
 </head>
@@ -726,14 +730,11 @@ body {
     <!-- Logout button -->
     <div class="logout-container">
         <form action="nutzer_logout.php" method="post">
-            <button type="submit" class="minecraft-btn logout-btn">Abmelden</button>
+            <button type="submit" class="logout-btn">Abmelden</button>
         </form>
     </div>
 
     <div class="search-container">
-        <!-- Diamond decoration -->
-        <div class="diamond-decoration"></div>
-        
         <!-- Grass top section -->
         <div class="grass-top"></div>
         
@@ -800,8 +801,8 @@ body {
                             div.className = "autocomplete-item";
                             div.innerHTML = item.name;
                             div.addEventListener('mousedown', function(e) {
-                                input.value = item.name;
-                                list.style.display = "none";
+                                // Direkt zur Item-Details-Seite navigieren
+                                window.location.href = 'item_details.php?id=' + item.id;
                             });
                             list.appendChild(div);
                         });
@@ -827,7 +828,8 @@ body {
                 e.preventDefault();
             } else if (e.key === "Enter") {
                 if (activeIndex > -1 && currentItems[activeIndex]) {
-                    currentItems[activeIndex].dispatchEvent(new Event('mousedown'));
+                    // Direkt zur Item-Details-Seite navigieren
+                    window.location.href = 'item_details.php?id=' + items[activeIndex].id;
                     e.preventDefault();
                 }
             } else {
