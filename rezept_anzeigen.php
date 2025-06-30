@@ -18,30 +18,11 @@ $trank_id = (int)$_GET['id']; // Hier TrankID verwenden
 
 // Hole alle Rezept- und Trankdetails für diesen Trank (und seine Basistränke)
 $sql = "SELECT 
-    r.TrankID AS Trank,
-    t.Name AS TrankName,
-    r.Basistrank_TrankID AS BasistrankID,
-    bt.Name AS BasistrankName,
-    r2.Rezept_nr AS Basistrank_RezeptNr,
-    r2.Nr AS Basistrank_Nr,
-    r2.Basistrank_TrankID AS Basistrank2ID,
-    bt2.Name AS Basistrank2Name,
-    r3.Rezept_nr AS Basistrank2_RezeptNr,
-    r3.Nr AS Basistrank2_Nr,
-    r.Spezialitem_ID,
-    si.Name AS SpezialitemName,
-    r.Brennstoff_ID,
-    b.Name AS BrennstoffName
+    Nr, Rezept_Nr.Rezept, Basistrank_TrankID.Basistrank, TrankID.Trank, BrennstoffID.Brennstoff, SpizialItemID.SpizialItem
 FROM 
-    Rezept r
-LEFT JOIN Trank t ON r.TrankID = t.TrankID
-LEFT JOIN Trank bt ON r.Basistrank_TrankID = bt.TrankID
-LEFT JOIN Rezept r2 ON r.Basistrank_TrankID = r2.TrankID
-LEFT JOIN Trank bt2 ON r2.Basistrank_TrankID = bt2.TrankID
-LEFT JOIN Rezept r3 ON r2.Basistrank_TrankID = r3.TrankID
-LEFT JOIN Spezialitem si ON r.Spezialitem_ID = si.ID
-LEFT JOIN Brennstoff b ON r.Brennstoff_ID = b.ID
-WHERE r.TrankID = ?";
+    Rezept r, Rezept m, Basistrank, SpizialItem, Brenstoff
+WHERE
+ Rezept.BasisTrank_TrankID = BasisTrank.BasisTrank_TrankID and Rezept.TrankID = Trank.TrankID and Rezept.BrennstoffID = Brennstoff.BrennstoffID and Rezept.SpezialItemID = SpezialItem.SpezialItemID"
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $trank_id);
 $stmt->execute();
