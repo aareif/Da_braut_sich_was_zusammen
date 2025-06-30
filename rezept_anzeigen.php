@@ -13,7 +13,7 @@ if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
     echo "Ungültige Trank-ID.";
     exit;
 }
-
+$stmt = 0;
 $trank_id = (int)$_GET['id']; // Hier TrankID verwenden
 
 // Hole alle Rezept- und Trankdetails für diesen Trank (und seine Basistränke)
