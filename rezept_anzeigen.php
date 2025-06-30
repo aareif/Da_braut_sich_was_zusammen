@@ -23,6 +23,7 @@ FROM
     Rezept r, Rezept m, Basistrank, SpizialItem, Brenstoff
 WHERE
  Rezept.BasisTrank_TrankID = BasisTrank.BasisTrank_TrankID and Rezept.TrankID = Trank.TrankID and Rezept.BrennstoffID = Brennstoff.BrennstoffID and Rezept.SpezialItemID = SpezialItem.SpezialItemID"
+
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $trank_id);
 $stmt->execute();
