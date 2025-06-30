@@ -29,7 +29,7 @@ FROM
     LEFT JOIN BasisTrank ON Rezept.BasisTrank_TrankID = BasisTrank.BasisTrank_TrankID
     LEFT JOIN Trank ON Rezept.TrankID = Trank.TrankID
     LEFT JOIN Brennstoff ON Rezept.BrennstoffID = Brennstoff.BrennstoffID
-    LEFT JOIN SpezialItem ON Rezept.SpezialItemID = SpizialItem.SpezialItemID
+    LEFT JOIN SpezialItem ON Rezept.SpezialItemID = SpezialItem.SpezialItemID
 WHERE
     Rezept.TrankID = ?";
 
