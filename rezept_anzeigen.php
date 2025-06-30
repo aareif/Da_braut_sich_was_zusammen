@@ -18,20 +18,20 @@ $trank_id = (int)$_GET['id']; // Hier TrankID verwenden
 
 // Angepasstes Query; passe die Tabellennamen und Felder ggf. an!
 $sql = "SELECT 
-    r.Nr,
-    r.Rezept,
-    b.Name AS BasistrankName,
-    t.Name AS TrankName,
-    br.Name AS BrennstoffName,
-    s.Name AS SpezialitemName
+    Nr,
+    Rezept,
+    Rezept.BasisTrank_TrankID AS BasistrankName,
+    Rezept.TrankID AS TrankName,
+    Rezept.BrennstoffID AS BrennstoffName,
+    Rezept.SpizialItemID AS SpezialitemName
 FROM 
     Rezept r
-    LEFT JOIN BasisTrank b ON r.BasisTrank_TrankID = b.BasisTrank_TrankID
-    LEFT JOIN Trank t ON r.TrankID = t.TrankID
-    LEFT JOIN Brennstoff br ON r.BrennstoffID = br.BrennstoffID
-    LEFT JOIN SpezialItem s ON r.SpezialItemID = s.SpezialItemID
+    LEFT JOIN BasisTrank ON Rezept.BasisTrank_TrankID = BasisTrank.BasisTrank_TrankID
+    LEFT JOIN Trank t ON Rezept.TrankID = Trank.TrankID
+    LEFT JOIN Brennstoff br ON Rezept.BrennstoffID = Brennstoff.BrennstoffID
+    LEFT JOIN SpezialItem s ON Rezept.SpezialItemID = SpizialItem.SpezialItemID
 WHERE
-    r.TrankID = ?";
+    Rezept.TrankID = ?";
 
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $trank_id);
