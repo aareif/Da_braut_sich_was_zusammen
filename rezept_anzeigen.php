@@ -13,16 +13,25 @@ if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
     echo "Ungültige Trank-ID.";
     exit;
 }
-$stmt = 0;
+
 $trank_id = (int)$_GET['id']; // Hier TrankID verwenden
 
-// Hole alle Rezept- und Trankdetails für diesen Trank (und seine Basistränke)
+// Angepasstes Query; passe die Tabellennamen und Felder ggf. an!
 $sql = "SELECT 
-    Nr, Rezept_Nr.Rezept, Basistrank_TrankID.Basistrank, TrankID.Trank, BrennstoffID.Brennstoff, SpizialItemID.SpizialItem
+    r.Nr,
+    r.Rezept,
+    b.Name AS BasistrankName,
+    t.Name AS TrankName,
+    br.Name AS BrennstoffName,
+    s.Name AS SpezialitemName
 FROM 
-    Rezept r, Rezept m, Basistrank, SpizialItem, Brenstoff
+    Rezept r
+    LEFT JOIN Basistrank b ON r.BasisTrank_TrankID = b.Basistrank_TrankID
+    LEFT JOIN Trank t ON r.TrankID = t.TrankID
+    LEFT JOIN Brennstoff br ON r.BrennstoffID = br.BrennstoffID
+    LEFT JOIN SpezialItem s ON r.SpezialItemID = s.SpezialItemID
 WHERE
- Rezept.BasisTrank_TrankID = BasisTrank.BasisTrank_TrankID and Rezept.TrankID = Trank.TrankID and Rezept.BrennstoffID = Brennstoff.BrennstoffID and Rezept.SpezialItemID = SpezialItem.SpezialItemID"
+    r.TrankID = ?";
 
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $trank_id);
@@ -40,22 +49,13 @@ if (!$data) {
 function zeigeRezeptDetails($data) {
     echo '<div class="details">';
     echo '<div class="detail-row"><span class="label">Trank:</span> ' . htmlspecialchars($data['TrankName']) . '</div>';
-    if ($data['BasistrankID']) {
-        echo '<div class="detail-row"><span class="label">Basistrank:</span> ' . htmlspecialchars($data['BasistrankName']);
-        // Basistrank2 anzeigen (verschachtelt)
-        if ($data['Basistrank2ID']) {
-            echo '<div class="details" style="margin-left:18px">';
-            echo '<div class="detail-row"><span class="label">Basistrank2:</span> ' . htmlspecialchars($data['Basistrank2Name']) . '</div>';
-            echo '<div class="detail-row"><span class="label">RezeptNr:</span> ' . htmlspecialchars($data['Basistrank2_RezeptNr']) . '</div>';
-            echo '<div class="detail-row"><span class="label">Nr:</span> ' . htmlspecialchars($data['Basistrank2_Nr']) . '</div>';
-            echo '</div>';
-        }
-        echo '</div>'; // Basistrank
+    if (!empty($data['BasistrankName'])) {
+        echo '<div class="detail-row"><span class="label">Basistrank:</span> ' . htmlspecialchars($data['BasistrankName']) . '</div>';
     }
-    if ($data['SpezialitemName']) {
+    if (!empty($data['SpezialitemName'])) {
         echo '<div class="detail-row"><span class="label">Spezial-Item:</span> ' . htmlspecialchars($data['SpezialitemName']) . '</div>';
     }
-    if ($data['BrennstoffName']) {
+    if (!empty($data['BrennstoffName'])) {
         echo '<div class="detail-row"><span class="label">Brennstoff:</span> ' . htmlspecialchars($data['BrennstoffName']) . '</div>';
     }
     echo '</div>';
