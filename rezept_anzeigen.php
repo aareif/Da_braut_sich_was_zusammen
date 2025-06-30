@@ -27,9 +27,9 @@ $sql = "SELECT
 FROM 
     Rezept 
     LEFT JOIN BasisTrank ON Rezept.BasisTrank_TrankID = BasisTrank.BasisTrank_TrankID
-    LEFT JOIN Trank t ON Rezept.TrankID = Trank.TrankID
-    LEFT JOIN Brennstoff br ON Rezept.BrennstoffID = Brennstoff.BrennstoffID
-    LEFT JOIN SpezialItem s ON Rezept.SpezialItemID = SpizialItem.SpezialItemID
+    LEFT JOIN Trank ON Rezept.TrankID = Trank.TrankID
+    LEFT JOIN Brennstoff ON Rezept.BrennstoffID = Brennstoff.BrennstoffID
+    LEFT JOIN SpezialItem ON Rezept.SpezialItemID = SpizialItem.SpezialItemID
 WHERE
     Rezept.TrankID = ?";
 
