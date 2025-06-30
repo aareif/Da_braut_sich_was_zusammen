@@ -23,7 +23,7 @@ $sql = "SELECT
     Rezept.BasisTrank_TrankID AS BasistrankName,
     Rezept.TrankID AS TrankName,
     Rezept.BrennstoffID AS BrennstoffName,
-    Rezept.SpizialItemID AS SpezialitemName
+    Rezept.SpezialItemID AS SpezialitemName
 FROM 
     Rezept 
     LEFT JOIN BasisTrank ON Rezept.BasisTrank_TrankID = BasisTrank.BasisTrank_TrankID
