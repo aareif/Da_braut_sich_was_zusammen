@@ -26,7 +26,7 @@ $sql = "SELECT
     s.Name AS SpezialitemName
 FROM 
     Rezept r
-    LEFT JOIN Basistrank b ON r.BasisTrank_TrankID = b.Basistrank_TrankID
+    LEFT JOIN BasisTrank b ON r.BasisTrank_TrankID = b.BasisTrank_TrankID
     LEFT JOIN Trank t ON r.TrankID = t.TrankID
     LEFT JOIN Brennstoff br ON r.BrennstoffID = br.BrennstoffID
     LEFT JOIN SpezialItem s ON r.SpezialItemID = s.SpezialItemID
